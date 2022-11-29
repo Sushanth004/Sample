@@ -4,6 +4,7 @@ git commit -m "commit message" # Adds files to the repository
 
 git log # Shows the Commits
 git log --all # Shows all the Commits 
+git log --graph # shows the commits
 
 git checkout <commit-id> # switches to the commitid mentioned
 git rm --cached <filenames> # unstages the file
