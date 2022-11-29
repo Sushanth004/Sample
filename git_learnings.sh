@@ -16,4 +16,4 @@ git config --global list # list the username and emailid
 git remote -v # list the remote URLS
 git remote set-url <originname> <originurl> # changes the origin url
 
-git clone <url> # clone the remote repository 
+git clone <url> # to clone the remote repository 
