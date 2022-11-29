@@ -12,7 +12,7 @@ git checkout -b <branchname> # creates the new branch
 git checkout <branchname> # switches to the new branch
 git merge <branchname> # merge the branch
 
-git config --global list # list the username and emailid
+git config --global list # to list the username and email id
 git remote -v # list the remote URLS
 git remote set-url <originname> <originurl> # changes the origin url
 
