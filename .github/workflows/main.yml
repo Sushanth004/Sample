@@ -5,5 +5,9 @@ jobs:
     name: FirstJob
     runs-on: ubuntu-latest
     steps:
+      - name: copy files
+        uses: actions/checkout@v3
       - name: run python file
         run: python helloworld.py
+      - name: ls
+        run: ls
