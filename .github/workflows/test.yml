@@ -1,9 +1,9 @@
 name: Test workflow
-on: workflow_dispatch
+on: push
 jobs:
   test_job:
     name: test
     runs-on: ubuntu-latest
     steps:
       - name: print hello
-        run: echo "Hello"
+        run: python --version
