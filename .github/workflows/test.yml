@@ -10,3 +10,5 @@ jobs:
           python-version: '3.8'
       - name: python version
         run: python --version
+      - name: print
+        run: echo "${{ toJSON(github)}}"
