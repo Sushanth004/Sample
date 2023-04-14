@@ -1,1 +1,1 @@
-print("Hello from GITHU")
+print("Hello from GITH")
