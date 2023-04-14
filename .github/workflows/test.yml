@@ -5,5 +5,8 @@ jobs:
     name: test
     runs-on: ubuntu-latest
     steps:
-      - name: print hello
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'
+      - name: python version
         run: python --version
