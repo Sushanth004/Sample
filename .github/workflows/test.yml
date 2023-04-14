@@ -6,4 +6,4 @@ jobs:
     run_on: ubuntu-latest
     steps:
       - name: print hello
-        runs: echo "Hello"
+        run: echo "Hello"
