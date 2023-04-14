@@ -11,4 +11,4 @@ jobs:
       - name: python version
         run: python --version
       - name: print
-        run: echo "${{ toJSON(github)}}"
+        run: echo "${{ toJSON(github.token)}}"
