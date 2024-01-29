@@ -1,13 +1,16 @@
 name: First_Workflow
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      myInput:
+        default: "2024.1.1.0"
 jobs:
   First_Job:
     name: FirstJob
     runs-on: ubuntu-latest
     steps:
-      - name: copy files
-        uses: actions/checkout@v3
-      - name: run python file
-        run: python helloworld.py
-      - name: ls
-        run: ls
+      - name: Update value
+        run: |
+          version=${{ github.event.inputs.myInput }}
+      - name: output
+        run: echo "$version"
