@@ -12,5 +12,6 @@ jobs:
       - name: Update value
         run: |
           version=${{ github.event.inputs.myInput }}
+          echo $version
       - name: output
         run: echo $version
