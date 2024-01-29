@@ -12,6 +12,7 @@ jobs:
       - name: Update value
         run: |
           version=${{ github.event.inputs.myInput }}
-          echo $version
+          echo 'project_version=$(echo "${version//./_}")' >> $GITHUB_ENV
+          echo $project_version
       - name: output
         run: echo $version
