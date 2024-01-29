@@ -13,4 +13,4 @@ jobs:
         run: |
           version=${{ github.event.inputs.myInput }}
       - name: output
-        run: echo "$version"
+        run: echo $version
