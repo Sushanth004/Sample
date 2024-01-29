@@ -13,5 +13,5 @@ jobs:
         run: |
           version=${{ github.event.inputs.myInput }}
           #echo ${version//./_}
-          echo 'project_version=$(echo ${version//./_})' >> $GITHUB_ENV
+          echo "project_version=$(echo ${version//./_})" >> $GITHUB_ENV
           echo $project_version
