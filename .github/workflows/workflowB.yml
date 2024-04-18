@@ -16,4 +16,4 @@ jobs:
       - name: Print Payload Data
         run: |
           echo "Payload data:"
-          echo "${{ github.event.client_payload.key }}"
+          echo "${{ github.event.client_payload.name }}"
