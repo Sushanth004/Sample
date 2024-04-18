@@ -1,0 +1,19 @@
+name: Triggered Workflow
+
+on:
+  repository_dispatch:
+    types: [my_custom_event]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        
+      # Accessing the payload data
+      - name: Print Payload Data
+        run: |
+          echo "Payload data:"
+          echo "${{ toJson(github.event.client_payload) }}"
