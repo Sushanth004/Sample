@@ -14,7 +14,7 @@ jobs:
           sudo apt-get install -y libxml2-utils
       - name: Print value
         run: |
-            xmllint --html --xpath "string(/html/body/div/div[1]/table/tbody/tr/td[1]/div/table/tbody/tr/td[2]/div/div)" index.html
+            xmllint --html --xpath "/html/body/div/div[1]/table/tbody/tr/td[1]/div/table/tbody/tr/td[2]/div/div" index.html
             
       - name: Read test results from index.html
         run: |
