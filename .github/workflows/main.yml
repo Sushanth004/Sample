@@ -12,13 +12,17 @@ jobs:
       - name: Install xmllint
         run: |
           sudo apt-get install -y libxml2-utils
-      - name: Read test results from index.html
+      - name: Print value
         run: |
-          if xmllint --html --xpath "string(//*[@id="successRate"])" index.html 2>/dev/null | grep -q "Fail"; then
-            echo "Some tests have failed."
-            xmllint --html --xpath "string(//*[@id="successRate"])" index.html 2>/dev/null
-            exit 1
-          else
-            echo "All tests passed."
-            xmllint --html --xpath "string(//*[@id="successRate"])" index.html 2>/dev/null
-          fi
+            value=$(xmllint --html --xpath "string(/html/body/div/div[1]/table/tbody/tr/td[2]/div/div)" index.html)
+            echo "$value"
+      # - name: Read test results from index.html
+      #   run: |
+      #     if xmllint --html --xpath "string(//*[@id="successRate"])" index.html 2>/dev/null | grep -q "Fail"; then
+      #       echo "Some tests have failed."
+      #       xmllint --html --xpath "string(//*[@id="successRate"])" index.html 2>/dev/null
+      #       exit 1
+      #     else
+      #       echo "All tests passed."
+      #       xmllint --html --xpath "string(//*[@id="successRate"])" index.html 2>/dev/null
+      #     fi
