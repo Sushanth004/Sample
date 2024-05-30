@@ -16,13 +16,13 @@ jobs:
         run: |
             echo xmllint --html --xpath "string(/html/body/div/div[1]/table/tbody/tr/td[2]/div/div)" index.html
             
-      # - name: Read test results from index.html
-      #   run: |
-      #     if xmllint --html --xpath "string(//*[@id="successRate"])" index.html 2>/dev/null | grep -q "Fail"; then
-      #       echo "Some tests have failed."
-      #       xmllint --html --xpath "string(//*[@id="successRate"])" index.html 2>/dev/null
-      #       exit 1
-      #     else
-      #       echo "All tests passed."
-      #       xmllint --html --xpath "string(//*[@id="successRate"])" index.html 2>/dev/null
-      #     fi
+      - name: Read test results from index.html
+        run: |
+          if xmllint --html --xpath "string(/html/body/div/div[1]/table/tbody/tr/td[2]/div/div)" index.html 2>/dev/null | grep -q "100%"; then
+            echo "Some tests have failed."
+            xmllint --html --xpath "string(//*[@id="successRate"])" index.html 2>/dev/null
+            exit 1
+          else
+            echo "All tests passed."
+            xmllint --html --xpath "string(//*[@id="successRate"])" index.html 2>/dev/null
+          fi
