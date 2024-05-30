@@ -1,19 +1,24 @@
 name: First_Workflow
 on:
   workflow_dispatch:
-    inputs:
-      myInput:
-        default: "2024.1.1.0"
+  
 jobs:
   First_Job:
     name: FirstJob
     runs-on: ubuntu-latest
     steps:
-      - name: Update value
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Install xmllint
         run: |
-          version=${{ github.event.inputs.myInput }}
-          #echo ${version//./_}
-          echo "project_version=$(echo ${version//./_})" >> $GITHUB_ENV
-      - name: output
+          sudo apt-get install -y libxml2-utils
+      - name: Read test results from index.html
         run: |
-          echo "Version is ${{ env.project_version }} only"
+          if xmllint --html --xpath "string(//*[@id="successRate"])" index.html 2>/dev/null | grep -q "Fail"; then
+            echo "Some tests have failed."
+            xmllint --html --xpath "string(//*[@id="successRate"])" index.html 2>/dev/null
+            exit 1
+          else
+            echo "All tests passed."
+            xmllint --html --xpath "string(//*[@id="successRate"])" index.html 2>/dev/null
+          fi
