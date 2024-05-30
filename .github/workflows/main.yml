@@ -18,7 +18,7 @@ jobs:
             
       - name: Read test results from index.html
         run: |
-          if xmllint --html --xpath "string(/html/body/div/div[1]/table/tbody/tr/td[2]/div/div)" index.html 2>/dev/null | grep -q "100%"; then
+          if xmllint --html --xpath "string(/html/body/div/div[1]/table/tbody/tr/td[1]/div/table/tbody/tr/td[2]/div/div)" index.html 2>/dev/null | grep -q "0"; then
             echo "Some tests have failed."
             xmllint --html --xpath "string(//*[@id="successRate"])" index.html 2>/dev/null
             exit 1
