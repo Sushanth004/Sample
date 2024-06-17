@@ -1,0 +1,23 @@
+name: Tag new release
+
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+ check:
+  runs-on: ubuntu-latest
+
+  steps:
+   - uses: actions/checkout@v3
+     with: 
+       fetch-depth: 0
+   - run: git fetch origin +refs/tags/*:refs/tags/*
+
+   - name: Create Tag
+     uses: anothrNick/github-tag-action@v1 
+     env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        WITH_V: false
+   
