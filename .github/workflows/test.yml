@@ -15,6 +15,6 @@ jobs:
       - name: checkout monorepo tf env config files
         uses: actions/checkout@v4
         with:
-          repository: learnings004/sample
+          repository: Sushanth004/Test
           ref: main
-          token: ${{ secrets.pat_token }}
+          token: "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"
