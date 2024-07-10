@@ -1,19 +1,20 @@
 name: Test workflow
 on: 
-  push:
-    branches:
-      - main
-    paths:
-      - ".github/workflows/*"
+  workflow_dispatch:
+  
 jobs:
   test_job:
     name: test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-python@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
-          python-version: '3.8'
-      - name: python version
-        run: python --version
-      - name: print
-        run: echo "${{ toJSON(github.repository_owner) }}"
+          ref: ${{ github.head_ref }}
+          
+      - name: checkout monorepo tf env config files
+        uses: actions/checkout@v4
+        with:
+          repository: learnings004/sample
+          ref: main
+          token: ${{ secrets.pat_token }}
