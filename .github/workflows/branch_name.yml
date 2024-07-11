@@ -2,7 +2,7 @@ name: branching name test
 
 on: 
   push:
-    branched:
+    branches:
       - "*TMGR*"
 
 jobs:
