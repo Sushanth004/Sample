@@ -1,0 +1,13 @@
+name: branching name test
+
+on: 
+  push:
+    branched:
+      - "*TMGR*"
+
+jobs:
+  build-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test
+        run: echo "Hello"
