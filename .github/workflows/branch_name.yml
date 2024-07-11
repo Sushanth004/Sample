@@ -3,7 +3,7 @@ name: branching name test
 on: 
   push:
     branches:
-      - ".*TMGR.*"
+      - "**TMGR*"
 
 jobs:
   build-push:
