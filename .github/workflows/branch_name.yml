@@ -3,11 +3,13 @@ name: branching name test
 on: 
   push:
     branches:
-      - "*TMGR*"
+      - "**TMGR*"
+      - main
 
 jobs:
   build-push:
     runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/m*'
     steps:
       - name: test
         run: echo "Hello"
