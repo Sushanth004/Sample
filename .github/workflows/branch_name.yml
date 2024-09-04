@@ -10,7 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: get Ram details
-        run: free -m
+        run: |
+           free -m
+           # echo "hello world"
+           echo "good"
 
       - name: get Ram details
         run: free -h --si
