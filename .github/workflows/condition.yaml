@@ -17,7 +17,7 @@ jobs:
       - name: Run some script
         id: step1
         run: |
-            echo "::set-output name=condition_met::true"
+            echo "::set-output name=condition_met::false"
 
   job2:
     runs-on: ubuntu-latest
