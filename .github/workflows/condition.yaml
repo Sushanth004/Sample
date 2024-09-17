@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: job1
     # if: needs.job1.outputs.condition_met == 'true'
-    if: needs.job1.steps.step1.output.condition_met == 'true'
+    if: needs.job1.steps.step1.outputs.condition_met == 'true'
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
