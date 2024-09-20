@@ -1,0 +1,21 @@
+name: Test cases Execution workflow
+
+on:
+  repository_dispatch:
+    types: [automation_test_cases_execution]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        
+      # Accessing the payload data
+      - name: Print Payload Data
+        run: |
+          echo "Payload data:"
+          echo "${{ github.event.client_payload.source_env }}"
+          echo "${{ github.event.client_payload.target_env }}"
+          echo "${{ github.event.client_payload.realm }}"
