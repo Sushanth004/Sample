@@ -16,10 +16,6 @@ jobs:
         with:
           python-version: "3.7"
 
-      - name: set env
-        run: |
-          export PYTHONPATH=common/
-
       - name: python code
         run: |
           import sample
