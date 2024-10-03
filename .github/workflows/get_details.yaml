@@ -15,7 +15,7 @@ jobs:
         run: |
           import os
           os.chdir("common-utils")
-          print(os.listdirs())
+          print(os.listdir())
           from sample import ui_repo_map
           print(ui_repo_map['test'])
         shell: python
