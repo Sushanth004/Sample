@@ -13,4 +13,6 @@ jobs:
 
       - name: python code
         run: |
-          ls
+          import os
+          os.listdir()
+        shell: python
