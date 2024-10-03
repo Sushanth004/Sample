@@ -18,6 +18,6 @@ jobs:
 
       - name: python code
         run: |
-          import common.sample
-          print(sample.ui_repo_map['test'])
+          from common.sample import ui_repo_map
+          print(ui_repo_map['test'])
         shell: python
