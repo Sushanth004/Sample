@@ -1,7 +1,3 @@
- 
-import sys
-import re
-
 ui_repo_map = {
     'test': 'TEST',
     'test1': 'TEST1'
