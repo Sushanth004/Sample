@@ -14,5 +14,5 @@ jobs:
       - name: python code
         run: |
           import os
-          os.listdir()
+          print(os.listdir())
         shell: python
