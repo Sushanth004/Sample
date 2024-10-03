@@ -11,13 +11,13 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up Python "3.9"
+      - name: Set up Python "3.7"
         uses: actions/setup-python@v2
         with:
-          python-version: "3.9"
+          python-version: "3.7"
 
       - name: python code
         run: |
-          from common.sample import ui_repo_map
-          print(ui_repo_map['test'])
+          from common import sample
+          print(sample.ui_repo_map['test'])
         shell: python
