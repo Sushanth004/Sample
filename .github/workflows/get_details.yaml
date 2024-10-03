@@ -16,9 +16,12 @@ jobs:
         with:
           python-version: "3.7"
 
+      - name: set env
+        run: |
+          export PYTHONPATH=common/
+
       - name: python code
         run: |
-          export PYTHONPATH=${PWD}:$PYTHONPATH
-          from common import sample
+          import sample
           print(sample.ui_repo_map['test'])
         shell: python
