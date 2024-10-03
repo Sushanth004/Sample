@@ -1,0 +1,18 @@
+name: Get Details workflow
+on: 
+  workflow_dispatch:
+  
+jobs:
+  test_job:
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: python code
+        run: |
+          import os
+          os.listdir()
+        shell: python
+        working-directory: .github/utils
