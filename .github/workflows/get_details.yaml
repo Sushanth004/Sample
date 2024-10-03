@@ -13,6 +13,7 @@ jobs:
 
       - name: python code
         run: |
-          import os
-          print(os.listdir())
+          from sample import ui_repo_map
+          print(ui_repo_map['test])
+        working-directory: common-utils
         shell: python
