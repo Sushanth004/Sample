@@ -17,8 +17,9 @@ jobs:
           python-version: "3.7"
 
       - name: python code
+        env:
+          PYTHONPATH: ${{ github.workspace }}/common
         run: |
-          import sample
-          print(sample.ui_repo_map['test'])
-        working-directory: common/
+          from sample import ui_repo_map
+          print(ui_repo_map['test'])
         shell: python
