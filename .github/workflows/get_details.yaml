@@ -18,6 +18,7 @@ jobs:
 
       - name: python code
         run: |
+          export PYTHONPATH=${PWD}:$PYTHONPATH
           from common import sample
           print(sample.ui_repo_map['test'])
         shell: python
