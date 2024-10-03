@@ -12,7 +12,7 @@ jobs:
 
       - name: python code
         run: |
+          cd ./github/utils/
           import os
           os.listdir()
         shell: python
-        working-directory: .github/utils
