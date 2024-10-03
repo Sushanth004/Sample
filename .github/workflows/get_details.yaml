@@ -24,4 +24,5 @@ jobs:
         run: |
           import sample
           print(sample.ui_repo_map['test'])
+        working-directory: common/
         shell: python
