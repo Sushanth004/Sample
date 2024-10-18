@@ -16,3 +16,4 @@ jobs:
            import json
            json_str=json.loads(${{ github.event.inputs.json_input }})
            print(json_str)
+        shell: python
