@@ -16,7 +16,7 @@ jobs:
            import json
            import os
            json_str=json.loads(${{ github.event.inputs.json_input }})
-           os.environ["name]="Sushanth
+           os.environ["name"]="Sushanth"
            os.environ["id"]="4"
            print(json_str)
         shell: python
