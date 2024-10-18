@@ -1,0 +1,18 @@
+name: json
+
+on: 
+  workflow_dispatch:
+    inputs:
+      json_input:
+        description: ''
+        required: true
+
+jobs:
+  build-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: set env 
+        run: |
+           import json
+           json_str=json.loads(${{ github.event.inputs.json_input }})
+           print(json_str)
