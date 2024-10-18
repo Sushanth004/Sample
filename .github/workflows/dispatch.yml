@@ -1,4 +1,4 @@
-name: json
+name: Parsing json payload
 
 on: 
   workflow_dispatch:
