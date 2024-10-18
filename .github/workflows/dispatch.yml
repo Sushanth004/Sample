@@ -25,6 +25,8 @@ jobs:
 
       - name: get env 
         run: |
-           echo "$name"
-           echo "$id"
+          import os
+          print(os.getenv("name"))
+          print(os.getenv("id"))
+        shell: python
 
