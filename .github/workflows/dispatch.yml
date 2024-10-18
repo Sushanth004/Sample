@@ -16,6 +16,8 @@ jobs:
            import json
            import os
            json_str=json.loads(${{ github.event.inputs.json_input }})
+           print(json_str["name"])
+           print(json_str["id"])
            os.environ["name"]=json_str["name"]
            os.environ["id"]=json_str["id"]
            print(json_str)
