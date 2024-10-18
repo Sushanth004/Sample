@@ -14,6 +14,15 @@ jobs:
       - name: set env 
         run: |
            import json
+           import os
            json_str=json.loads(${{ github.event.inputs.json_input }})
+           os.environ["name]="Sushanth
+           os.environ["id"]="4"
            print(json_str)
         shell: python
+
+      - name: get env 
+        run: |
+           echo "$name"
+           echo "$id"
+
