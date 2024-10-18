@@ -16,17 +16,16 @@ jobs:
            import json
            import os
            json_str=json.loads(${{ github.event.inputs.json_input }})
-           print(json_str["name"])
-           print(json_str["id"])
-           os.environ["name"]=json_str["name"]
-           os.environ["id"]=json_str["id"]
+           with open(os.getenv('GITHUB_ENV'), 'a') as env_file:
+                  env_file.write(f'NAME={json_str["name"]}\n')
+                  env_file.write(f'ID={json_str["id"]}\n')
            print(json_str)
         shell: python
 
       - name: get env 
         run: |
           import os
-          print(os.getenv("name"))
-          print(os.getenv("id"))
+          print(os.getenv("NAME"))
+          print(os.getenv("ID"))
         shell: python
 
