@@ -1,0 +1,20 @@
+name: Conditional Job Workflows
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: 
+        version: [12, 14, 16]
+        exclude:
+         - version: 12
+    steps:
+      - name: Print Version
+        uses: |
+          echo ${{ matrix.version }}
+
