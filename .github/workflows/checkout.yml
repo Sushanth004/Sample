@@ -1,9 +1,7 @@
 name: checkout
 
 on: 
-  push:
-    branches:
-      - main
+  workflow_dispatch
 
 jobs:
   build-push:
@@ -17,6 +15,6 @@ jobs:
             --sparse \
             --single-branch \
             -b "test123456" \
-            $TMS_CPP_REPO_URL_HTTPS recipe_branch
+            "https://github.com/Sushanth004/Sample.git" test_branch
 
       
