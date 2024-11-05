@@ -1,0 +1,22 @@
+name: checkout
+
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+  build-push:
+    runs-on: windows-2019
+    steps:
+      - name: checkout
+        run: |
+          git clone \
+            --depth=1 \
+            --filter=blob:none \
+            --sparse \
+            --single-branch \
+            -b "test123456" \
+            $TMS_CPP_REPO_URL_HTTPS recipe_branch
+
+      
