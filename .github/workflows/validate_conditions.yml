@@ -1,6 +1,7 @@
 name: Conditional Job Workflows
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -8,6 +9,14 @@ on:
 jobs:
   job1:
     runs-on: ubuntu-latest
+    steps:
+      - name: Print Version
+        run: |
+          echo "Hello"
+    
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
     strategy:
       matrix: 
         version: [12, 14, 16]
