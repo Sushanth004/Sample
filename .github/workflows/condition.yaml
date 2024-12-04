@@ -20,7 +20,7 @@ jobs:
 
       - name: Run some script
         run: |
-          if ${{ github.event.inputs.env_type == 'Prod' }} ; then
+          if ${{ github.event.inputs.ENV_TYPE != 'Prod' }} ; then
               echo "ENVIRON=Prod" >> $GITHUB_ENV
           else
               echo "ENVIRON=NonProd" >> $GITHUB_ENV
