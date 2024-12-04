@@ -1,32 +1,32 @@
 name: Conditional Job Workflow
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+    inputs:
+      ENV_TYPE:
+        type: choice
+        description: Deployment environment
+        required: true
+        options: 
+          - Prod
+          - Dev
 
 jobs:
   job1:
     runs-on: ubuntu-latest
-    # outputs:
-    #   condition_met: ${{ steps.step1.outputs.condition_met }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Run some script
-        id: step1
         run: |
-            echo "::set-output name=condition_met::true"
+          if ${{ github.event.inputs.env_type == 'Prod' }} ; then
+              echo "ENVIRON=Prod" >> $GITHUB_ENV
+          else
+              echo "ENVIRON=NonProd" >> $GITHUB_ENV
+          fi
 
-  job2:
-    runs-on: ubuntu-latest
-    needs: job1
-    # if: needs.job1.outputs.condition_met == 'true'
-    if: needs.job1.steps.step1.outputs.condition_met == 'true'
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Print
+        run: |
+          echo ${{ env.ENVIRON }}
 
-      - name: Run conditional job
-        run: echo "Job2 is running because the condition was met!"
