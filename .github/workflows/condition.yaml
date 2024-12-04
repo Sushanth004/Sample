@@ -23,7 +23,7 @@ jobs:
           if ${{ github.event.inputs.ENV_TYPE != 'Prod' }} ; then
               echo "ENVIRON=Prod" >> $GITHUB_ENV
           else
-              echo "ENVIRON=NonProd" >> $GITHUB_ENV
+              echo "ENVIRON=${{ secrets.SAMPLE }}" >> $GITHUB_ENV
           fi
 
       - name: Print
