@@ -1,4 +1,4 @@
-name: Conditional Job Workflow
+name: env
 
 on:
   workflow_dispatch:
