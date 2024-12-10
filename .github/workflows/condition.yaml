@@ -2,14 +2,6 @@ name: env
 
 on:
   workflow_dispatch:
-    inputs:
-      ENV_TYPE:
-        type: choice
-        description: Deployment environment
-        required: true
-        options: 
-          - Prod
-          - Dev
 
 jobs:
   job1:
@@ -20,13 +12,10 @@ jobs:
 
       - name: Run some script
         run: |
-          if ${{ github.event.inputs.ENV_TYPE != 'Prod' }} ; then
-              echo "ENVIRON=Prod" >> $GITHUB_ENV
-          else
-              echo "ENVIRON=${{ secrets.SAMPLE }}" >> $GITHUB_ENV
-          fi
+          release_version=2024.4.0
+          echo "RELEASE_VERSION=${release_version}" >> $GITHUB_ENV
 
       - name: Print
         run: |
-          echo ${{ env.ENVIRON }}
+          echo "${{ env.RELEASE_VERSION }}"
 
