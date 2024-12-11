@@ -12,7 +12,7 @@ jobs:
 
       - name: Run some script
         run: |
-          release_version='2024.4.0 2024.4.0'
+          release_version=$(cat sample.txt)
           echo "RELEASE_VERSION=${release_version}" >> $GITHUB_ENV
 
       - name: Print
