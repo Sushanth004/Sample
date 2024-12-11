@@ -17,5 +17,5 @@ jobs:
 
       - name: Print
         run: |
-          echo "${{ env.RELEASE_VERSION }}"
+          echo $(echo Hello)
 
