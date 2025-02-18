@@ -5,13 +5,13 @@ on:
     inputs:
       numA:
         required: true
-        type: number
+        type: string
       numB:
         required: true
-        type: number
+        type: string
       numC:
         required: true
-        type: number
+        type: string
 
 jobs:
   Addition:
