@@ -1,0 +1,43 @@
+name: Add 2 numbers
+
+on:
+  workflow_call:
+    inputs:
+      numA:
+        required: true
+        type: number
+      numB:
+        required: true
+        type: number
+    outputs:
+      total:
+        value: ${{ jobs.Addition.outputs.addition_total }}
+
+jobs:
+ Addition:
+  runs-on: ubuntu-latest
+
+  env: 
+    NUMBER_A: ${{ inputs.numA }}
+    NUMBER_B: ${{ inputs.numB }}
+
+  steps:
+    - name: checkout
+      uses: actions/checkout@v4
+
+    - name: Addition of 2 numbers
+      id: addition
+      run: |
+        import os
+        Total=${{ env.NUMBER_A }} + ${{ env.NUMBER_B }}
+        print(f"Addition of 2 numbers is : {Total}")
+        with open(os.getenv('GITHUB_OUTPUT'),'a') as env_file:
+          env_file.write(f'TOTAL={Total}'\n)
+      shell: python
+
+  outputs:
+    addition_total: ${{ steps.addition.outputs.TOTAL }}
+
+
+
+        
