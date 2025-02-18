@@ -26,5 +26,5 @@ jobs:
     secrets: inherit
     needs: Addition
     with:
-      numA: ${{ needs.Addition.outputs.total }}
+      numA: ${{ fromJson(needs.Addition.outputs.total) }}
       numB: ${{ fromJson(github.event.inputs.numB) }}
