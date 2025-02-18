@@ -1,0 +1,43 @@
+name: Sub 2 numbers
+
+on:
+  workflow_call:
+    inputs:
+      numA:
+        required: true
+        type: number
+      numB:
+        required: true
+        type: number
+    outputs:
+      total:
+        value: ${{ jobs.Sub.outputs.sub_total }}
+
+jobs:
+ Sub:
+  runs-on: ubuntu-latest
+
+  env: 
+    NUMBER_A: ${{ inputs.numA }}
+    NUMBER_B: ${{ inputs.numB }}
+
+  steps:
+    - name: checkout
+      uses: actions/checkout@v4
+
+    - name: Sub of 2 numbers
+      id: sub
+      run: |
+        import os
+        Total=${{ env.NUMBER_A }} - ${{ env.NUMBER_B }}
+        print(f"Sub of 2 numbers is : {Total}")
+        with open(os.getenv('GITHUB_OUTPUT'),'a') as env_file:
+          env_file.write(f'TOTAL={Total}\n')
+      shell: python
+
+  outputs:
+    sub_total: ${{ steps.sub.outputs.TOTAL }}
+
+
+
+        
