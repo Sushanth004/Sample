@@ -15,14 +15,14 @@ on:
 
 jobs:
   Addition:
-    uses: Sushanth004/Sample/.github/workflows/calledaddition.yml@main
+    uses: ./.github/workflows/calledaddition.yml
     secrets: inherit
     with:
       numA: ${{ fromJson(github.event.inputs.numA) }}
       numB: ${{ fromJson(github.event.inputs.numB) }}
 
   Sub:
-    uses: Sushanth004/Sample/.github/workflows/calledsubstraction.yml@main
+    uses: ./.github/workflows/calledsubstraction.yml
     secrets: inherit
     needs: Addition
     with:
