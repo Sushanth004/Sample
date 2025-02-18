@@ -27,4 +27,4 @@ jobs:
     needs: Addition
     with:
       numA: ${{ fromJson(needs.Addition.outputs.total) }}
-      numB: ${{ fromJson(github.event.inputs.numB) }}
+      numB: ${{ fromJson(github.event.inputs.numC) }}
