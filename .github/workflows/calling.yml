@@ -1,0 +1,22 @@
+name: Call Addition and Sub of 2 numbers
+
+on:
+  workflow_dispatch:
+    inputs:
+      numA:
+        required: true
+        type: number
+      numB:
+        required: true
+        type: number
+      numC:
+        required: true
+        type: number
+
+jobs:
+  Addition:
+    uses: Sushanth004/Sample/.github/workflows/calledaddition.yml@main
+    secrets: inherit
+    with:
+      numA: ${{ github.event.inputs.numA }}
+      numB: ${{ github.event.inputs.numB }}
