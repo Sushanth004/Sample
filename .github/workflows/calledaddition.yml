@@ -32,7 +32,7 @@ jobs:
         Total=${{ env.NUMBER_A }} + ${{ env.NUMBER_B }}
         print(f"Addition of 2 numbers is : {Total}")
         with open(os.getenv('GITHUB_OUTPUT'),'a') as env_file:
-          env_file.write(f'TOTAL={Total}'\n)
+          env_file.write(f'TOTAL={Total}\n')
       shell: python
 
   outputs:
