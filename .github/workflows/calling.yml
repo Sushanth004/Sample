@@ -24,6 +24,7 @@ jobs:
   Sub:
     uses: Sushanth004/Sample/.github/workflows/calledsubstraction.yml@main
     secrets: inherit
+    needs: Addition
     with:
-      numA: ${{ fromJson(needs.Addition.outputs.total) }}
+      numA: ${{ needs.Addition.outputs.total }}
       numB: ${{ fromJson(github.event.inputs.numB) }}
