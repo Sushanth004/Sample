@@ -13,13 +13,15 @@ on:
       total:
         value: ${{ jobs.Sub.outputs.sub_total }}
 
+env: 
+    NUMBER_A: ${{ inputs.numA }}
+    NUMBER_B: ${{ inputs.numB }}
+
 jobs:
  Sub:
   runs-on: ubuntu-latest
 
-  env: 
-    NUMBER_A: ${{ inputs.numA }}
-    NUMBER_B: ${{ inputs.numB }}
+
 
   steps:
     - name: checkout
