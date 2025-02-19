@@ -25,6 +25,9 @@ jobs:
     - name: checkout
       uses: actions/checkout@v4
 
+    - name: display
+      run: echo ${{ github.event_name }}
+
     - name: Sub of 2 numbers
       id: sub
       run: |
